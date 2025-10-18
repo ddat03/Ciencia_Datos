@@ -80,16 +80,22 @@ with col2:
     
     # Botón de predicción
     if st.button("Predecir", use_container_width=True):
-        # Preparar datos en el orden exacto que espera el modelo
+        # Preparar datos en el ORDEN EXACTO que espera el modelo
         df_entrada = pd.DataFrame({
-            'RMED': [rmed],
-            'CALI': [cali],
-            'DTC': [dtc],
-            'SP': [sp],
-            'RXO': [rxo],
-            'PEF': [pef],
-            'FORMATION': [formation]
+            'FORMATION': [formation],
+            'Calibre (CALI)': [cali],
+            'Resistividad Media (RMED)': [rmed],
+            'Factor Fotoeléctrico (PEF)': [pef],
+            'Lentitud Compresional (DTC)': [dtc],
+            'Potencial Espontáneo (SP)': [sp],
+            'Resistividad de Zona Lavada (RXO)': [rxo]
         })
+        
+        # Reordenar columnas en el orden exacto que espera el modelo
+        columnas_ordenadas = ['FORMATION', 'Calibre (CALI)', 'Resistividad Media (RMED)', 
+                             'Factor Fotoeléctrico (PEF)', 'Lentitud Compresional (DTC)', 
+                             'Potencial Espontáneo (SP)', 'Resistividad de Zona Lavada (RXO)']
+        df_entrada = df_entrada[columnas_ordenadas]
         
         # Predicción
         probabilidad = modelo.predict_proba(df_entrada)[0][1]
@@ -114,7 +120,7 @@ with col2:
         
         # Tabla
         resumen = pd.DataFrame({
-            'Variable': ['RMED', 'CALI', 'SP', 'DTC', 'RXO', 'PEF', 'FORMATION'],
+            'Variable': ['Resistividad Media (RMED)', 'Calibre (CALI)', 'Potencial Espontáneo (SP)', 'Lentitud Compresional (DTC)', 'Resistividad de Zona Lavada (RXO)', 'Factor Fotoeléctrico (PEF)', 'Rango de Profundidad'],
             'Valor': [rmed, cali, sp, dtc, rxo, pef, formation_str]
         })
         st.table(resumen)
