@@ -28,8 +28,7 @@ modelo_seleccionado = st.sidebar.selectbox(
 
 # Mapeo de modelos
 modelos = {
-    "RF - Class Weights (Original)": "mejor_modelo_rf_cw.pkl",
-    "RF - Optimizado": "modelo_rf_optimizado.pkl"
+    "RF - Class Weights (Original)": "rf_cw.pkl",
 }
 
 # Cargar modelo
@@ -286,3 +285,4 @@ elif modo_entrada == "Comparar Predicciones":
 
 st.divider()
 st.caption("Predictor de Reservorio v2.0 | Fase 2 Midterm - Mejorado con Dataset")
+
