@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
-
+from sklearn.ensemble import RandomForestClassifier
 # Configuración de página
 st.set_page_config(page_title="Predictor de Reservorio", layout="wide")
 st.title("🔍 Predictor de Calidad de Reservorio Petrolero")
@@ -285,4 +285,5 @@ elif modo_entrada == "Comparar Predicciones":
 
 st.divider()
 st.caption("Predictor de Reservorio v2.0 | Fase 2 Midterm - Mejorado con Dataset")
+
 
