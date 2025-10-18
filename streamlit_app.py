@@ -80,18 +80,16 @@ with col2:
     
     # Botón de predicción
     if st.button("Predecir", use_container_width=True):
-        # Preparar datos
-        datos = {
-            'CALI': [cali],
+        # Preparar datos en el orden exacto que espera el modelo
+        df_entrada = pd.DataFrame({
             'RMED': [rmed],
+            'CALI': [cali],
             'DTC': [dtc],
             'SP': [sp],
             'RXO': [rxo],
             'PEF': [pef],
             'FORMATION': [formation]
-        }
-        
-        df_entrada = pd.DataFrame(datos)
+        })
         
         # Predicción
         probabilidad = modelo.predict_proba(df_entrada)[0][1]
