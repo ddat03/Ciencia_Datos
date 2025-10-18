@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Configuración de página
 st.set_page_config(page_title="Predictor de Reservorio", layout="wide")
-st.title("🔍 Predictor de Calidad de Reservorio Petrolero")
+st.title("Predictor de Calidad de Reservorio Petrolero")
 
 # Sidebar para seleccionar modelo
 st.sidebar.header("Configuración del Modelo")
@@ -18,9 +18,9 @@ modelo_path = "rf_cw.pkl"
 try:
     with open(modelo_path, 'rb') as f:
         modelo = pickle.load(f)
-    st.sidebar.success(f"✓ Modelo cargado correctamente")
+    st.sidebar.success(f"Modelo cargado correctamente")
 except FileNotFoundError:
-    st.sidebar.error(f"❌ No se encontró: {modelo_path}")
+    st.sidebar.error(f"No se encontró: {modelo_path}")
     st.stop()
 
 # Threshold recomendado
@@ -109,9 +109,9 @@ with col2:
         
         with col_r1:
             if prediccion == 1:
-                st.success("✓ RESERVORIO DETECTADO")
+                st.success("RESERVORIO DETECTADO")
             else:
-                st.error("✗ NO RESERVORIO")
+                st.error("NO RESERVORIO")
             st.metric("Probabilidad", f"{probabilidad:.2%}")
         
         with col_r2:
@@ -126,4 +126,5 @@ with col2:
 
 st.divider()
 st.caption("Predictor de Reservorio v1.0 | Fase 2 Midterm")
+
 
