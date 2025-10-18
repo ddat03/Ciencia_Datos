@@ -115,7 +115,6 @@ with col2:
             st.metric("Probabilidad", f"{probabilidad:.2%}")
         
         with col_r2:
-            st.metric("Confianza", f"{abs(probabilidad - 0.5) * 2:.2%}")
             st.metric("Threshold", f"{threshold:.2f}")
         
         # Tabla
@@ -127,3 +126,4 @@ with col2:
 
 st.divider()
 st.caption("Predictor de Reservorio v1.0 | Fase 2 Midterm")
+
